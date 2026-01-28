@@ -5,16 +5,19 @@ public class ConsoleUI {
     private Scanner sc = new Scanner(System.in);
 
     public void mostrarTablero(char[][] tablero) {
-        System.out.println("\nTablero:");
-        for (int i = 0; i < tablero.length; i++) {
-            for (int j = 0; j < tablero[i].length; j++) {
-                char c = tablero[i][j];
-                if (c == 'B') c = '~'; // ocultar barcos
-                System.out.print(c + " ");
-            }
-            System.out.println();
+    System.out.println("\n   0 1 2 3 4");
+
+    for (int i = 0; i < tablero.length; i++) {
+        System.out.print(i + "  ");
+        for (int j = 0; j < tablero[i].length; j++) {
+            char c = tablero[i][j];
+            if (c == 'B') c = '~'; // ocultar barcos
+            System.out.print(c + " ");
         }
+        System.out.println();
     }
+}
+
 
     public int pedirCoordenada(String texto, int max) {
         int valor;
