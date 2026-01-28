@@ -18,17 +18,27 @@ public class ConsoleUI {
     }
 }
 
-
     public int pedirCoordenada(String texto, int max) {
-        int valor;
-        do {
+    int valor = -1;
+    boolean valido = false;
+
+    while (!valido) {
+        try {
             System.out.print(texto);
             valor = sc.nextInt();
-        } while (valor < 0 || valor >= max);
-        return valor;
-    }
 
-    public void mensaje(String texto) {
-        System.out.println(texto);
+            if (valor >= 0 && valor < max) {
+                valido = true;
+            } else {
+                System.out.println("Número fuera de rango (0-" + (max - 1) + ")");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Debes introducir un número válido.");
+            sc.nextLine(); // limpiamos la entrada incorrecta
+        }
     }
+    return valor;
+}
+
 }
